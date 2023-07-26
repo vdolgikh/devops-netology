@@ -13,20 +13,28 @@
 
 ### Ответы
 
-1. ![task_1_1](img/task_1_1.png)
+1. Вывод команды `terraform init`:
+
+![task_1_1](img/task_1_1.png)
+
 2. В файле `personal.auto.tfvars`
 3. 
 ```bash
 "result": "D5s3PjRvecizKqId"
 ```
-4. После выполнения кода получил 2 ошибки:
+4. После выполнения кода получил следующие ошибки:
  - для ресурса с типом `docker_image` не было указано имя;
- - имя ресурса `docker_container` не соответствует требованиям. Исходя из подсказки в выводе имя ресурса должно начинаться с буквы или `_`;
- - в строке `name  = "example_${random_password.random_string_FAKE.resulT}"` было допущено сразу две ошибки: `random_string_FAKE` и `resulT`. Исправленая строка должна выглядеть так: `name  = "example_${random_password.random_string.result}"`. Да и вообще, очень странно светить пароль в имени контейнера!
+ - имя ресурса `docker_container` не соответствовало требованиям. Исходя из подсказки в выводе имя ресурса должно начинаться с буквы или `_`;
+ - в строке `name  = "example_${random_password.random_string_FAKE.resulT}"` было допущено сразу две ошибки: `random_string_FAKE` и `resulT`. Исправленная строка должна выглядеть так: 
+ `name  = "example_${random_password.random_string.result}"`. Да и вообще, очень странно светить пароль в имени контейнера!
 5. В выводе два контейнера потому что один из них действующий (`03b592cfbf34`) и был запущен ранее, а контейнер `1fd0fedf4ed0` - это результат выполнения этого подпункта.
+
 ![task_1_5](img/task_1_5.png)
+
 6. Выполнять `-auto-approve` это как прыгать с парашютом не проверив сам парашют. Надо быть на 100% уверенным какие изменения будут внесены.
+
 ![task_1_6](img/task_1_6.png)
+
 7. 
 ```bash
 dolgikh:/my/netology_devops/repo/devops-netology/ter-homeworks/01/src # cat terraform.tfstate
@@ -40,7 +48,7 @@ dolgikh:/my/netology_devops/repo/devops-netology/ter-homeworks/01/src # cat terr
   "check_results": null
 }
 ```
-8. Потому что блоке ресурса не был указан требуемый для этого ключ и значение `force_remove = true`:
+8. Потому что в блоке ресурса не был указан требуемый для этого ключ и его значение `force_remove = true`:
 > force_remove (Boolean) If true, then the image is removed forcibly when the resource is destroyed.
 [Ссылка на документацию](https://docs.comcloud.xyz/providers/kreuzwerker/docker/latest/docs/resources/image)
 
