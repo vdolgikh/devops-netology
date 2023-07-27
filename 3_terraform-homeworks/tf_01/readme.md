@@ -48,8 +48,9 @@ dolgikh:/my/netology_devops/repo/devops-netology/ter-homeworks/01/src # cat terr
   "check_results": null
 }
 ```
-8. Потому что в блоке ресурса не был указан требуемый для этого ключ и его значение `force_remove = true`:
-> force_remove (Boolean) If true, then the image is removed forcibly when the resource is destroyed.
+8. Потому что в блоке ресурса БЫЛ указан требуемый для этого параметр и его значение `keep_locally = true`:
+> keep_locally (Boolean) If true, then the Docker image won't be deleted on destroy operation. If this is false, it will delete the image from the docker local storage on destroy operation.
+
 [Ссылка на документацию](https://docs.comcloud.xyz/providers/kreuzwerker/docker/latest/docs/resources/image)
 
 ## Задание 2
