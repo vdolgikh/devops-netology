@@ -30,12 +30,21 @@ variable "vpc_name" {
   default     = "develop"
   description = "VPC network & subnet name"
 }
+    
+variable "vms_metadata" {
+  type        = map
+  default     = {
+    serial     = 1
+    ssh_root_key = "ubuntu:ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAsq2ExfK3566dlMj6YsJ+wv7JJdMSN4C6w1aChS2qJH dolgikh@dolgikh"
+  }
+}
 
-
-###ssh vars
-
-variable "vms_ssh_root_key" {
-  type        = string
-  default     = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAsq2ExfK3566dlMj6YsJ+wv7JJdMSN4C6w1aChS2qJH dolgikh@dolgikh"
-  description = "ssh-keygen -t ed25519"
+variable "vm_properties" {
+  type        = map
+  default     = {
+    company   = "netology"
+    env       = "develop"
+    web       = "platform-web"
+    db        = "platform-db"
+  }
 }
