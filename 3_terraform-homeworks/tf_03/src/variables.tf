@@ -104,3 +104,8 @@ variable "vlms" {
     },
   ]
 }
+
+variable "public_key" {
+  type    = string
+  default = ""
+}

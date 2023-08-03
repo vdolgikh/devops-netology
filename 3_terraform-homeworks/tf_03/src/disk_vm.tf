@@ -7,19 +7,21 @@ resource "yandex_compute_disk" "ext_disk" {
 }
 
 resource "yandex_compute_instance" "storage" {
-  name       = "storage"
+  for_each = local.vm_storage
+  name       = "netology-develop-platform-${each.key}"
   depends_on = [
     yandex_compute_disk.ext_disk
   ]
   platform_id = var.vm_web_platform_id
   resources {
-    cores         = var.vm_web_resources["cpu"]
-    memory        = var.vm_web_resources["ram"]
-    core_fraction = var.vm_web_resources["core_fraction"]
+    cores         = each.value.cpu
+    memory        = each.value.ram
+    core_fraction = 5
   }
   boot_disk {
     initialize_params {
       image_id = data.yandex_compute_image.ubuntu.image_id
+      size = each.value.disk
     }
   }
   dynamic "secondary_disk" {

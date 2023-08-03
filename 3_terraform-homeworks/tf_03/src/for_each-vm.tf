@@ -1,4 +1,4 @@
-resource "yandex_compute_instance" "web" {
+resource "yandex_compute_instance" "database" {
   for_each = local.vms
   name = "netology-develop-platform-${each.key}"
   platform_id = var.vm_web_platform_id
@@ -27,6 +27,6 @@ resource "yandex_compute_instance" "web" {
     user-data          = local.ssh_public_key
   }
   depends_on = [
-    yandex_compute_instance.platform
+    yandex_compute_instance.web
   ]
 }
