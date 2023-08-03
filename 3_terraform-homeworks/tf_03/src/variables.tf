@@ -86,17 +86,11 @@ variable "main_replica_properties" {
   ]
 }
 
-#variable "disks" {
-#  default = {
-#    disk_id = "1"
-#  }
-#}
-
 variable "vlms" {
   description = "Secondary disks"
   type = list(object(
     {
-      disk_id     = string
+      disk_id     = number
   }))
   default = [
     { 
