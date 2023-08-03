@@ -49,4 +49,88 @@ vm_web = {
 }
 ```
 
+## Задание 5
 
+1. В файле locals.tf опишите в одном local-блоке имя каждой ВМ, используйте интерполяцию ${..} с несколькими переменными по примеру из лекции.
+2. Замените переменные с именами ВМ из файла variables.tf на созданные вами local-переменные.
+3. Примените изменения.
+
+### Ответ
+
+1. Содержимое файла locals.tf:
+
+```bash
+locals {
+  vm_name_web = "${var.vm_properties["company"]}-${var.vm_properties["env"]}-${var.vm_properties["web"]}"
+  vm_name_db  = "${var.vm_properties["company"]}-${var.vm_properties["env"]}-${var.vm_properties["db"]}"
+}
+```
+
+2. Переменная в variables.tf:
+
+```bash
+variable "vm_properties" {
+  type        = map
+  default     = {
+    company   = "netology"
+    env       = "develop"
+    web       = "platform-web"
+    db        = "platform-db"
+  }
+}
+```
+
+![Ссылка на файл locals.tf](https://github.com/vdolgikh/devops-netology/blob/main/3_terraform-homeworks/tf_02/src/locals.tf)
+
+![Ссылка на файл variables.tf](https://github.com/vdolgikh/devops-netology/blob/main/3_terraform-homeworks/tf_02/src/variables.tf)
+
+## Задание 6
+
+1. Вместо использования трёх переменных ".._cores",".._memory",".._core_fraction" в блоке resources {...}, объедините их в переменные типа map с именами "vm_web_resources" и "vm_db_resources". В качестве продвинутой практики попробуйте создать одну map-переменную vms_resources и уже внутри неё конфиги обеих ВМ — вложенный map.
+2. Также поступите с блоком metadata {serial-port-enable, ssh-keys}, эта переменная должна быть общая для всех ваших ВМ.
+3. Найдите и удалите все более не используемые переменные проекта.
+4. Проверьте terraform plan. Изменений быть не должно.
+
+### Ответ
+
+1. Переменные в файле vms_platform.tf:
+
+```bash
+variable "vm_web_resources" {
+  type    = map
+  default = {
+    cpu   = 2
+    ram   = 1
+    core_fraction = 5
+  }
+}
+
+variable "vm_db_resources" {
+  type    = map
+  default = {
+    cpu   = 2
+    ram   = 2
+    core_fraction = 20
+  }
+}
+```
+
+2. Переменная в файле variables.tf:
+
+```bash
+variable "vms_metadata" {
+  type         = map
+  default      = {
+    serial     = 1
+    ssh_root_key = "ubuntu:ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAsq2ExfK3566dlMj6YsJ+wv7JJdMSN4C6w1aChS2qJH dolgikh@dolgikh"
+  }
+}
+```
+
+![Ссылка на файл vms_platform.tf](https://github.com/vdolgikh/devops-netology/blob/main/3_terraform-homeworks/tf_02/src/vms_platform.tf)
+
+![Ссылка на файл variables.tf](https://github.com/vdolgikh/devops-netology/blob/main/3_terraform-homeworks/tf_02/src/variables.tf)
+
+3. Зачистил неиспользуемые более переменные.
+
+4. Как результат выполнил `terraform plan` - изменений не было.
