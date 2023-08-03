@@ -80,9 +80,9 @@ variable "vm_properties" {
 }
 ```
 
-![Ссылка на файл locals.tf](https://github.com/vdolgikh/devops-netology/blob/main/3_terraform-homeworks/tf_02/src/locals.tf)
+([Ссылка на файл locals.tf](https://github.com/vdolgikh/devops-netology/blob/main/3_terraform-homeworks/tf_02/src/locals.tf))
 
-![Ссылка на файл variables.tf](https://github.com/vdolgikh/devops-netology/blob/main/3_terraform-homeworks/tf_02/src/variables.tf)
+([Ссылка на файл variables.tf](https://github.com/vdolgikh/devops-netology/blob/main/3_terraform-homeworks/tf_02/src/variables.tf))
 
 ## Задание 6
 
@@ -127,9 +127,9 @@ variable "vms_metadata" {
 }
 ```
 
-![Ссылка на файл vms_platform.tf](https://github.com/vdolgikh/devops-netology/blob/main/3_terraform-homeworks/tf_02/src/vms_platform.tf)
+([Ссылка на файл vms_platform.tf](https://github.com/vdolgikh/devops-netology/blob/main/3_terraform-homeworks/tf_02/src/vms_platform.tf))
 
-![Ссылка на файл variables.tf](https://github.com/vdolgikh/devops-netology/blob/main/3_terraform-homeworks/tf_02/src/variables.tf)
+([Ссылка на файл variables.tf](https://github.com/vdolgikh/devops-netology/blob/main/3_terraform-homeworks/tf_02/src/variables.tf))
 
 3. Зачистил неиспользуемые более переменные.
 
