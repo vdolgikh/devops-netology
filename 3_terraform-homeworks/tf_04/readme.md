@@ -22,7 +22,7 @@ data template_file "cloud-init" {
   }
 }
 ```
-3. Добавил 1 строку:
+3. Добавил 1 строку в конце файла:
 
 ```
 packages:
@@ -45,7 +45,41 @@ packages:
 
 ### Ответ
 
+1. Написал модуль `vpc_network`:
 
+![task_2-1](img/task_02-1.png)
+
+2. Передал переменные указав их в секции модуля корневого файла `main.tf` и в файле переменных модуля `variables.tf`:
+
+main.tf:
+![task_2-2-1](img/task_02-2-1.png)
+
+variables.tf:
+![task_2-2-2](img/task_02-2-2.png)
+
+3. Скриншот информации о модуле из terraform console: 
+
+![task_2-2](img/task_02-2.png)
+
+4. Сделал. Пришлось изменить 2 строки. 
+
+Было:
+```
+network_id      = yandex_vpc_network.develop.id
+subnet_ids      = [ yandex_vpc_subnet.develop.id ]
+```
+
+Стало:
+```
+network_id      = module.vpc_network.vpc_network_id
+subnet_ids      = module.vpc_network.vpc_subnet[*]
+```
+
+5. Скриншот информации о модуле из terraform console: 
+
+![task_2-2-3](img/task_02-2-3.png)
+
+6. ([Ссылка на файл сформированный с помощью terraform-docs](https://github.com/vdolgikh/devops-netology/blob/main/3_terraform-homeworks/tf_04/src/docs.md))
 
 ## Задание 3
 
@@ -58,13 +92,24 @@ packages:
 
 ### Ответ
 
+1. Скриншот списка ресурсов:
 
+![task_3-1](img/task_03-1.png)
 
-## Задание 4
+2. Скриншот после удаления модуля vpc_network:
 
+![task_3-2](img/task_03-2.png)
 
+3. Скриншот после удаления модуля test-vm:
 
-### Ответ
+![task_3-3](img/task_03-3.png)
 
+4. Импортировал следующими командами:
 
+```
+terraform import 'module.vpc_network.yandex_vpc_network.develop' enpq5ldr1ce8i3s0v4bv
+terraform import 'module.vpc_network.yandex_vpc_subnet.develop' e9bghgsbdek4ui4se9s0
+terraform import 'module.test-vm.yandex_compute_instance.vm[0]' fhm2t2p23tf39vsj4esn
+terraform import 'module.test-vm.yandex_compute_instance.vm[1]' fhmal2qvmrnt0so5hkuq
 
+```

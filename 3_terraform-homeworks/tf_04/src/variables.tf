@@ -33,5 +33,5 @@ variable "vpc_name" {
 
 variable "ssh_public_key" {
   type    = string
-  default = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDTHpVLnlGtdQ19X3HD6deDtaSgQ2Z4b4Vpg+AwfkmDNohzxU+zvXO1pkIqurueLBOgHj1igoIh/uZsZu9yibUyYrKDwlTxmoLJnCE1w3vmYcFlHyrMMupFmmK+n4U0wwYEt9y5RLy0+udS+wRhXM5vWmIPxJfBnBAFDFcA8xx6ttB0OOsiqhXjHcRSoZbZEOtonioN1f2d0412vQE/666e9sigk1kkBODZGan2cebxutLQQ9BiDWMEg1/6j/LCSb1O9HlaYkPps7n1WtjO5dpgEqkWOEV9qlGEHlOyZf6xihIfgPBteLV2aS96hxasFJ49f6g/9me0eTwxxOgIckPv dolgikh@dolgikh-suse"
+  default = ""
 }
