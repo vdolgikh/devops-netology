@@ -12,6 +12,40 @@ resource "yandex_vpc_subnet" "develop" {
 data "yandex_compute_image" "ubuntu" {
   family = var.vm_web_family
 }
+
+data "yandex_compute_image" "centos" {
+  family = var.vm_web_family_centos
+}
+
+resource "yandex_compute_instance" "platform" {
+  name = local.vm_name_web
+  platform_id = var.vm_web_platform_id
+  resources {
+    cores         = var.vm_web_resources["cpu"]
+    memory        = var.vm_web_resources["ram"]
+    core_fraction = var.vm_web_resources["core_fraction"]
+  }
+  boot_disk {
+    initialize_params {
+      image_id = data.yandex_compute_image.centos.image_id
+    }
+  }
+  scheduling_policy {
+    preemptible = true
+  }
+  network_interface {
+    subnet_id = yandex_vpc_subnet.develop.id
+    nat       = true
+  }
+
+  metadata = {
+    serial-port-enable = var.vms_metadata_centos["serial"]
+    ssh-keys           = var.vms_metadata_centos["ssh_root_key"]
+  }
+
+}
+
+/*
 resource "yandex_compute_instance" "platform" {
   name = local.vm_name_web
   platform_id = var.vm_web_platform_id
@@ -39,6 +73,7 @@ resource "yandex_compute_instance" "platform" {
   }
 
 }
+
 resource "yandex_compute_instance" "platform_db" {
   name        = local.vm_name_db
   platform_id = var.vm_web_platform_id
@@ -66,3 +101,4 @@ resource "yandex_compute_instance" "platform_db" {
   }
 
 }
+*/

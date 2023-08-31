@@ -39,6 +39,14 @@ variable "vms_metadata" {
   }
 }
 
+variable "vms_metadata_centos" {
+  type        = map
+  default     = {
+    serial     = 1
+    ssh_root_key = "centos:ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAsq2ExfK3566dlMj6YsJ+wv7JJdMSN4C6w1aChS2qJH dolgikh@dolgikh"
+  }
+}
+
 variable "vm_properties" {
   type        = map
   default     = {

@@ -4,6 +4,12 @@ variable "vm_web_family" {
   description = "VM image family"
 }
 
+variable "vm_web_family_centos" {
+  type        = string
+  default     = "centos-7"
+  description = "VM image family"
+}
+
 variable "vm_web_name" {
   type        = string
   default     = "netology-develop-platform-web"
