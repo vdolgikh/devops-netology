@@ -57,6 +57,7 @@
     - name: Flush handlers
       meta: flush_handlers
     - name: Create configuration using jinja2
+      become: true
       ansible.builtin.template:
         src: templates/vector_cfg.j2
         dest: /etc/vector/vector.toml
