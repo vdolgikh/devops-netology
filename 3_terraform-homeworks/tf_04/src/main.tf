@@ -5,6 +5,18 @@ terraform {
     }
   }
   required_version = ">=0.13"
+
+  backend "s3" {
+    endpoint = "storage.yandexcloud.net"
+    bucket   = "tfstate-vdolgikh"
+    region   = "ru-central1-a"
+    key      = "terraform.tfstate"
+
+    skip_region_validation      = true
+    skip_credentials_validation = true
+  }
+  
+
 }
 
 provider "yandex" {
@@ -24,10 +36,8 @@ module "vpc_network" {
 module "test-vm" {
   source          = "git::https://github.com/udjin10/yandex_compute_instance.git?ref=main"
   env_name        = "develop"
- # network_id      = yandex_vpc_network.develop.id
   network_id      = module.vpc_network.vpc_network_id
   subnet_zones    = ["ru-central1-a"]
- # subnet_ids      = [ yandex_vpc_subnet.develop.id ]
   subnet_ids      = module.vpc_network.vpc_subnet[*]
   instance_name   = "web"
   instance_count  = 2
