@@ -43,6 +43,17 @@ preset = "recommended"
 5. Пришлите ответ об ошибке доступа к state.
 6. Принудительно разблокируйте state. Пришлите команду и вывод.
 
+### Ответы
+
+1. Ветку сделал: [terraform-05](https://github.com/vdolgikh/devops-netology/tree/terraform-05)
+2. Много скриншотов:
+
+![task_2-1](img/task_2-1.png)
+![task_2-2](img/task_2-2.png)
+![task_2-3](img/task_2-3.png)
+![task_2-4](img/task_2-4.png)
+![task_2-5](img/task_2-5.png)
+
 ## Задание 3  
 
 1. Сделайте в GitHub из ветки 'terraform-05' новую ветку 'terraform-hotfix'.
@@ -51,7 +62,7 @@ preset = "recommended"
 4. Вставьте в комментарий PR результат анализа tflint и checkov, план изменений инфраструктуры из вывода команды terraform plan.
 5. Пришлите ссылку на PR для ревью. Вливать код в 'terraform-05' не нужно.
 
-### Задание 4
+## Задание 4
 
 1. Напишите переменные с валидацией и протестируйте их, заполнив default верными и неверными значениями. Предоставьте скриншоты проверок из terraform console. 
 
