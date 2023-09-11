@@ -1,0 +1,10 @@
+---
+clickhouse_version: "22.3.3.44"
+clickhouse_packages:
+  - clickhouse-client
+  - clickhouse-server
+  - clickhouse-common-static
+vector_version: "0.32.1-1"
+nginx_user: "nobody"
+lighthouse_vsc: "https://github.com/VKCOM/lighthouse"
+lighthouse_location_dir: "/usr/share/nginx/lighthouse/"

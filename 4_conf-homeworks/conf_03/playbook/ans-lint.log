@@ -1,0 +1,27 @@
+]8;id=258506;https://ansible-lint.readthedocs.io/rules/name/\[1;91mname[missing][0m]8;;\[2m:[0m [91mAll tasks should be named.[0m
+[34msite.yml[0m:11 [2mTask/Handler: block/always/rescue [0m
+
+]8;id=715095;https://ansible-lint.readthedocs.io/rules/risky-file-permissions/\[1;91mrisky-file-permissions[0m]8;;\[2m:[0m [91mFile permissions unset or incorrect.[0m
+[34msite.yml[0m:12 [2mTask/Handler: Get clickhouse distrib[0m
+
+]8;id=750444;https://ansible-lint.readthedocs.io/rules/risky-file-permissions/\[1;91mrisky-file-permissions[0m]8;;\[2m:[0m [91mFile permissions unset or incorrect.[0m
+[34msite.yml[0m:18 [2mTask/Handler: Get clickhouse distrib[0m
+
+]8;id=843817;https://ansible-lint.readthedocs.io/rules/jinja/\[1;33mjinja[spacing][0m]8;;\[2m:[0m [33mJinja2 spacing could be improved: create_db.rc != 0 and create_db.rc !=82 -> create_db.rc != 0 and create_db.rc != 82[0m [2;33m(warning)[0m
+[34msite.yml[0m:32 [2mJinja2 template rewrite recommendation: `create_db.rc != 0 and create_db.rc != 82`.[0m
+
+]8;id=962450;https://ansible-lint.readthedocs.io/rules/name/\[1;91mname[missing][0m]8;;\[2m:[0m [91mAll tasks should be named.[0m
+[34msite.yml[0m:46 [2mTask/Handler: block/always/rescue [0m
+
+]8;id=442914;https://ansible-lint.readthedocs.io/rules/risky-file-permissions/\[1;91mrisky-file-permissions[0m]8;;\[2m:[0m [91mFile permissions unset or incorrect.[0m
+[34msite.yml[0m:47 [2mTask/Handler: Get vector distrib[0m
+
+]8;id=13374;https://ansible-lint.readthedocs.io/rules/fqcn/\[1;91mfqcn[action-core][0m]8;;\[2m:[0m [91mUse FQCN for builtin module actions (meta).[0m
+[34msite.yml[0m:57 [2mUse `ansible.builtin.meta` or `ansible.legacy.meta` instead.[0m
+
+]8;id=952868;https://ansible-lint.readthedocs.io/rules/risky-file-permissions/\[1;91mrisky-file-permissions[0m]8;;\[2m:[0m [91mFile permissions unset or incorrect.[0m
+[34msite.yml[0m:59 [2mTask/Handler: Create configuration using jinja2[0m
+
+]8;id=955750;https://ansible-lint.readthedocs.io/rules/yaml/\[1;91myaml[new-line-at-end-of-file][0m]8;;\[2m:[0m [91mNo new line character at the end of file[0m
+[34msite.yml[0m:62
+
