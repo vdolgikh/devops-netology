@@ -1,0 +1,6 @@
+---
+# tasks file for createfile
+  - name: My module test
+    my_own_module:
+      path: /tmp/123
+      content: 456

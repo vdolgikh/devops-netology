@@ -1,0 +1,4 @@
+---
+# defaults file for createfile
+path: '/tmp/123'
+content: '456'
