@@ -1,0 +1,12 @@
+[sources.system_logs]
+type = "file"
+include = [ "/var/log/messages" ]
+read_from = "end"
+
+[sinks.clickhouse]
+type = "clickhouse"
+inputs = ["system_logs"]
+endpoint = "http://localhost:8123"
+database = "logs"
+table = "system_logs"
+skip_unknown_fields = true

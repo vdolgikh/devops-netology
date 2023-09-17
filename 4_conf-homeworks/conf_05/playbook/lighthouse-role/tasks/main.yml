@@ -1,0 +1,38 @@
+---
+# tasks file for lighthouse-role
+  - name: Install epel-release
+    become: true
+    ansible.builtin.yum:
+      name: epel-release
+      state: present
+  - name: Install NGINX
+    become: true
+    ansible.builtin.yum:
+      name: nginx
+      state: present
+    notify: Start-nginx
+  - name: Create config
+    become: true
+    ansible.builtin.template:
+      src: templates/nginx.conf.j2
+      dest: /etc/nginx/nginx.conf
+      mode: "0644"
+    notify: Reload-nginx
+  - name: Install dependencies
+    become: true
+    ansible.builtin.yum:
+      name: git
+      state: present
+  - name: Get LightHouse from git
+    become: true
+    ansible.builtin.git:
+      repo: "{{ lighthouse_vsc }}"
+      version: master
+      dest: "{{ lighthouse_location_dir }}"
+  - name: Create LightHouse config
+    become: true
+    ansible.builtin.template:
+      src: templates/lighthouse.conf.j2
+      dest: /etc/nginx/conf.d/lighthouse.conf
+      mode: "0644"
+    notify: Reload-nginx

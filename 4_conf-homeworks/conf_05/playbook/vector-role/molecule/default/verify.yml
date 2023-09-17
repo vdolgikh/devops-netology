@@ -1,0 +1,22 @@
+---
+# This is an example playbook to execute Ansible tests.
+
+- name: Verify
+  hosts: all
+  become: true
+  gather_facts: false
+  vars:
+      vector_config: "/etc/vector/vector.toml"
+  tasks:
+    - name: Validate vector config
+      command: "vector validate {{ vector_config }}"
+      register: vector_validate_result
+    - name: Debug
+      debug:
+        var: vector_validate_result.stdout_lines
+    - name: Check vector
+      command: "vector -V"
+      register: vector_ver
+    - name: Debug
+      debug:
+        var: vector_ver

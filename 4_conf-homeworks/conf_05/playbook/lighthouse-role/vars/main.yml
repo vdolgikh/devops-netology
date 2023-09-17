@@ -1,0 +1,4 @@
+---
+# vars file for lighthouse-role
+lighthouse_vsc: "https://github.com/VKCOM/lighthouse"
+lighthouse_location_dir: "/usr/share/nginx/lighthouse/"
